@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="last.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="E_USERS">
+          <Key>
+            <PropertyRef Name="E_ID" />
+          </Key>
+          <Property Name="E_ID" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="E_PASSWORD" Type="varchar2" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ABC.EMP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="EMP">
+          <Key>
+            <PropertyRef Name="E_ID" />
+            <PropertyRef Name="E_NAME" />
+            <PropertyRef Name="E_ADDRESS" />
+            <PropertyRef Name="E_IMAGE" />
+            <PropertyRef Name="E_EMAIL" />
+          </Key>
+          <Property Name="E_ID" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="E_NAME" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="E_ADDRESS" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="E_IMAGE" Type="varchar2" MaxLength="8" Nullable="false" />
+          <Property Name="E_EMAIL" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="E_WEBSITE" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <Association Name="EMPLOYERS_E_ID_FK">
+          <End Role="E_USERS" Type="Self.E_USERS" Multiplicity="1" />
+          <End Role="EMP" Type="Self.EMP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="E_USERS">
+              <PropertyRef Name="E_ID" />
+            </Principal>
+            <Dependent Role="EMP">
+              <PropertyRef Name="E_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="lastStoreContainer">
+          <EntitySet Name="E_USERS" EntityType="Self.E_USERS" Schema="ABC" store:Type="Tables" />
+          <EntitySet Name="EMP" EntityType="Self.EMP" store:Type="Tables" store:Schema="ABC">
+            <DefiningQuery>SELECT 
+"EMP"."E_ID" AS "E_ID", 
+"EMP"."E_NAME" AS "E_NAME", 
+"EMP"."E_ADDRESS" AS "E_ADDRESS", 
+"EMP"."E_IMAGE" AS "E_IMAGE", 
+"EMP"."E_EMAIL" AS "E_EMAIL", 
+"EMP"."E_WEBSITE" AS "E_WEBSITE"
+FROM "ABC"."EMP" "EMP"</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="EMPLOYERS_E_ID_FK" Association="Self.EMPLOYERS_E_ID_FK">
+            <End Role="E_USERS" EntitySet="E_USERS" />
+            <End Role="EMP" EntitySet="EMP" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="last" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="E_USERS">
+          <Key>
+            <PropertyRef Name="E_ID" />
+          </Key>
+          <Property Name="E_ID" Type="Int16" Nullable="false" />
+          <Property Name="E_PASSWORD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EMPs" Relationship="Self.EMPLOYERS_E_ID_FK" FromRole="E_USERS" ToRole="EMP" />
+        </EntityType>
+        <EntityType Name="EMP">
+          <Key>
+            <PropertyRef Name="E_ID" />
+            <PropertyRef Name="E_NAME" />
+            <PropertyRef Name="E_ADDRESS" />
+            <PropertyRef Name="E_IMAGE" />
+            <PropertyRef Name="E_EMAIL" />
+          </Key>
+          <Property Name="E_ID" Type="Int16" Nullable="false" />
+          <Property Name="E_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="E_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="E_IMAGE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="E_EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="E_WEBSITE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="E_USERS" Relationship="Self.EMPLOYERS_E_ID_FK" FromRole="EMP" ToRole="E_USERS" />
+        </EntityType>
+        <Association Name="EMPLOYERS_E_ID_FK">
+          <End Role="E_USERS" Type="Self.E_USERS" Multiplicity="1" />
+          <End Role="EMP" Type="Self.EMP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="E_USERS">
+              <PropertyRef Name="E_ID" />
+            </Principal>
+            <Dependent Role="EMP">
+              <PropertyRef Name="E_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="lastEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="E_USERS" EntityType="Self.E_USERS" />
+          <EntitySet Name="EMPs" EntityType="Self.EMP" />
+          <AssociationSet Name="EMPLOYERS_E_ID_FK" Association="Self.EMPLOYERS_E_ID_FK">
+            <End Role="E_USERS" EntitySet="E_USERS" />
+            <End Role="EMP" EntitySet="EMPs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="lastStoreContainer" CdmEntityContainer="lastEntities">
+          <EntitySetMapping Name="E_USERS">
+            <EntityTypeMapping TypeName="last.E_USERS">
+              <MappingFragment StoreEntitySet="E_USERS">
+                <ScalarProperty Name="E_ID" ColumnName="E_ID" />
+                <ScalarProperty Name="E_PASSWORD" ColumnName="E_PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPs">
+            <EntityTypeMapping TypeName="last.EMP">
+              <MappingFragment StoreEntitySet="EMP">
+                <ScalarProperty Name="E_ID" ColumnName="E_ID" />
+                <ScalarProperty Name="E_NAME" ColumnName="E_NAME" />
+                <ScalarProperty Name="E_ADDRESS" ColumnName="E_ADDRESS" />
+                <ScalarProperty Name="E_IMAGE" ColumnName="E_IMAGE" />
+                <ScalarProperty Name="E_EMAIL" ColumnName="E_EMAIL" />
+                <ScalarProperty Name="E_WEBSITE" ColumnName="E_WEBSITE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

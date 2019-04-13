@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{66E292AF-05FA-41EB-8526-3B878A662580}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ADMS</RootNamespace>
+    <AssemblyName>ADMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Entity.Design.Extensibility, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.DataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.2.1100\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Selectors" />
+    <Reference Include="System.identitymodel.services" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Entity.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="browseJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="browseJob.Designer.cs">
+      <DependentUpon>browseJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="browseJS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="browseJS.Designer.cs">
+      <DependentUpon>browseJS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="emp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="emp.Designer.cs">
+      <DependentUpon>emp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="empPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="empPanel.Designer.cs">
+      <DependentUpon>empPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jobSeeker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jobSeeker.Designer.cs">
+      <DependentUpon>jobSeeker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="jobseekerPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="jobseekerPanel.Designer.cs">
+      <DependentUpon>jobseekerPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="oracle.cs" />
+    <Compile Include="pmPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pmPanel.Designer.cs">
+      <DependentUpon>pmPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Portal Modarator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Portal Modarator.Designer.cs">
+      <DependentUpon>Portal Modarator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="recoveryPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="recoveryPass.Designer.cs">
+      <DependentUpon>recoveryPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="show.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="show.Designer.cs">
+      <DependentUpon>show.cs</DependentUpon>
+    </Compile>
+    <Compile Include="stat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stat.Designer.cs">
+      <DependentUpon>stat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="universal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="universal.Designer.cs">
+      <DependentUpon>universal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateEmployee.Designer.cs">
+      <DependentUpon>updateEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateJobSeeker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateJobSeeker.Designer.cs">
+      <DependentUpon>updateJobSeeker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProfileSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateProfileSettings.Designer.cs">
+      <DependentUpon>UpdateProfileSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uploadCircular.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uploadCircular.Designer.cs">
+      <DependentUpon>uploadCircular.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Verify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Verify.Designer.cs">
+      <DependentUpon>Verify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="verifyJobSeekers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="verifyJobSeekers.Designer.cs">
+      <DependentUpon>verifyJobSeekers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view.Designer.cs">
+      <DependentUpon>view.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="browseJob.resx">
+      <DependentUpon>browseJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="browseJS.resx">
+      <DependentUpon>browseJS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="emp.resx">
+      <DependentUpon>emp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="empPanel.resx">
+      <DependentUpon>empPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jobSeeker.resx">
+      <DependentUpon>jobSeeker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jobseekerPanel.resx">
+      <DependentUpon>jobseekerPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pmPanel.resx">
+      <DependentUpon>pmPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Portal Modarator.resx">
+      <DependentUpon>Portal Modarator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="recoveryPass.resx">
+      <DependentUpon>recoveryPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="show.resx">
+      <DependentUpon>show.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stat.resx">
+      <DependentUpon>stat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="universal.resx">
+      <DependentUpon>universal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateEmployee.resx">
+      <DependentUpon>updateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateJobSeeker.resx">
+      <DependentUpon>updateJobSeeker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateProfileSettings.resx">
+      <DependentUpon>UpdateProfileSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uploadCircular.resx">
+      <DependentUpon>uploadCircular.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Verify.resx">
+      <DependentUpon>Verify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="verifyJobSeekers.resx">
+      <DependentUpon>verifyJobSeekers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view.resx">
+      <DependentUpon>view.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

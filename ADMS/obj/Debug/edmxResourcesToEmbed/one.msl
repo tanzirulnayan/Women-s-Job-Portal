@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="onesStoreContainer" CdmEntityContainer="oneEntities">
+    <EntitySetMapping Name="E_USERS">
+      <EntityTypeMapping TypeName="ones.E_USERS">
+        <MappingFragment StoreEntitySet="E_USERS">
+          <ScalarProperty Name="E_ID" ColumnName="E_ID" />
+          <ScalarProperty Name="E_PASSWORD" ColumnName="E_PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPs">
+      <EntityTypeMapping TypeName="ones.EMP">
+        <MappingFragment StoreEntitySet="EMP">
+          <ScalarProperty Name="E_ID" ColumnName="E_ID" />
+          <ScalarProperty Name="E_NAME" ColumnName="E_NAME" />
+          <ScalarProperty Name="E_ADDRESS" ColumnName="E_ADDRESS" />
+          <ScalarProperty Name="E_IMAGE" ColumnName="E_IMAGE" />
+          <ScalarProperty Name="E_EMAIL" ColumnName="E_EMAIL" />
+          <ScalarProperty Name="E_WEBSITE" ColumnName="E_WEBSITE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

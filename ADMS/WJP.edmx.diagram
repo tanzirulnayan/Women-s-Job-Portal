@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0ad70a6ac2fe4188b4f7ee190e684444" Name="Diagram1">
+        <EntityTypeShape EntityType="WomanModel.E_USERS" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WomanModel.JOB_CIRCULARS" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WomanModel.JS_USERS" Width="1.5" PointX="5.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WomanModel.PM_USERS" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WomanModel.EMPLOYER" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WomanModel.JOB_SEEKERS" Width="1.5" PointX="8" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="WomanModel.PORTAL_MODERATORS" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WomanModel.VERIFY_HISTORY" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="WomanModel.EMPLOYERS_E_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WomanModel.JOB_CIRCULARS_E_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WomanModel.VERIFY_HISTORY_E_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WomanModel.JOB_SEEKERS_JS_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WomanModel.PORTAL_MODERATORS_PM_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="WomanModel.VERIFY_HISTORY_PM_ID_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

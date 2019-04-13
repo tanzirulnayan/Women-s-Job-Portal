@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="lalaModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="E_USERS">
+    <Key>
+      <PropertyRef Name="E_ID" />
+    </Key>
+    <Property Name="E_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="E_PASSWORD" Type="varchar2" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CBA.LALA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LALA">
+    <Key>
+      <PropertyRef Name="E_ID" />
+      <PropertyRef Name="E_NAME" />
+      <PropertyRef Name="E_ADDRESS" />
+      <PropertyRef Name="E_IMAGE" />
+      <PropertyRef Name="E_EMAIL" />
+    </Key>
+    <Property Name="E_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="E_NAME" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="E_ADDRESS" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="E_IMAGE" Type="varchar2" MaxLength="8" Nullable="false" />
+    <Property Name="E_EMAIL" Type="varchar2" MaxLength="40" Nullable="false" />
+    <Property Name="E_WEBSITE" Type="varchar2" MaxLength="30" />
+  </EntityType>
+  <Association Name="EMPLOYERS_E_ID_FK">
+    <End Role="E_USERS" Type="Self.E_USERS" Multiplicity="1" />
+    <End Role="LALA" Type="Self.LALA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="E_USERS">
+        <PropertyRef Name="E_ID" />
+      </Principal>
+      <Dependent Role="LALA">
+        <PropertyRef Name="E_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="lalaModelStoreContainer">
+    <EntitySet Name="E_USERS" EntityType="Self.E_USERS" Schema="CBA" store:Type="Tables" />
+    <EntitySet Name="LALA" EntityType="Self.LALA" store:Type="Tables" store:Schema="CBA">
+      <DefiningQuery>SELECT 
+"LALA"."E_ID" AS "E_ID", 
+"LALA"."E_NAME" AS "E_NAME", 
+"LALA"."E_ADDRESS" AS "E_ADDRESS", 
+"LALA"."E_IMAGE" AS "E_IMAGE", 
+"LALA"."E_EMAIL" AS "E_EMAIL", 
+"LALA"."E_WEBSITE" AS "E_WEBSITE"
+FROM "CBA"."LALA" "LALA"</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="EMPLOYERS_E_ID_FK" Association="Self.EMPLOYERS_E_ID_FK">
+      <End Role="E_USERS" EntitySet="E_USERS" />
+      <End Role="LALA" EntitySet="LALA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

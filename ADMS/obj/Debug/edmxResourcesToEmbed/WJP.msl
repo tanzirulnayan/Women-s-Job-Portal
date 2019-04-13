@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WomanModelStoreContainer" CdmEntityContainer="WomanEntities">
+    <EntitySetMapping Name="E_USERS">
+      <EntityTypeMapping TypeName="WomanModel.E_USERS">
+        <MappingFragment StoreEntitySet="E_USERS">
+          <ScalarProperty Name="E_ID" ColumnName="E_ID" />
+          <ScalarProperty Name="E_PASSWORD" ColumnName="E_PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JOB_CIRCULARS">
+      <EntityTypeMapping TypeName="WomanModel.JOB_CIRCULARS">
+        <MappingFragment StoreEntitySet="JOB_CIRCULARS">
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+          <ScalarProperty Name="C_TITLE" ColumnName="C_TITLE" />
+          <ScalarProperty Name="J_POSITION" ColumnName="J_POSITION" />
+          <ScalarProperty Name="JOB_NATURE" ColumnName="JOB_NATURE" />
+          <ScalarProperty Name="JOB_TYPE" ColumnName="JOB_TYPE" />
+          <ScalarProperty Name="CGPA_REQ" ColumnName="CGPA_REQ" />
+          <ScalarProperty Name="JOB_LOCATION" ColumnName="JOB_LOCATION" />
+          <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+          <ScalarProperty Name="E_ID" ColumnName="E_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JS_USERS">
+      <EntityTypeMapping TypeName="WomanModel.JS_USERS">
+        <MappingFragment StoreEntitySet="JS_USERS">
+          <ScalarProperty Name="JS_ID" ColumnName="JS_ID" />
+          <ScalarProperty Name="JS_PASSWORD" ColumnName="JS_PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PM_USERS">
+      <EntityTypeMapping TypeName="WomanModel.PM_USERS">
+        <MappingFragment StoreEntitySet="PM_USERS">
+          <ScalarProperty Name="PM_ID" ColumnName="PM_ID" />
+          <ScalarProperty Name="PM_PASSWORD" ColumnName="PM_PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYERS">
+      <EntityTypeMapping TypeName="WomanModel.EMPLOYER">
+        <MappingFragment StoreEntitySet="EMPLOYERS">
+          <ScalarProperty Name="E_PHONE" ColumnName="E_PHONE" />
+          <ScalarProperty Name="E_ID" ColumnName="E_ID" />
+          <ScalarProperty Name="E_NAME" ColumnName="E_NAME" />
+          <ScalarProperty Name="E_ADDRESS" ColumnName="E_ADDRESS" />
+          <ScalarProperty Name="E_EMAIL" ColumnName="E_EMAIL" />
+          <ScalarProperty Name="E_WEBSITE" ColumnName="E_WEBSITE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JOB_SEEKERS">
+      <EntityTypeMapping TypeName="WomanModel.JOB_SEEKERS">
+        <MappingFragment StoreEntitySet="JOB_SEEKERS">
+          <ScalarProperty Name="JS_ID" ColumnName="JS_ID" />
+          <ScalarProperty Name="JS_NAME" ColumnName="JS_NAME" />
+          <ScalarProperty Name="JS_ADDRESS" ColumnName="JS_ADDRESS" />
+          <ScalarProperty Name="JS_PHONE" ColumnName="JS_PHONE" />
+          <ScalarProperty Name="JS_EMAIL" ColumnName="JS_EMAIL" />
+          <ScalarProperty Name="JS_DOB" ColumnName="JS_DOB" />
+          <ScalarProperty Name="JS_EDUCATION" ColumnName="JS_EDUCATION" />
+          <ScalarProperty Name="JS_SKILLS" ColumnName="JS_SKILLS" />
+          <ScalarProperty Name="JS_IMAGE" ColumnName="JS_IMAGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PORTAL_MODERATORS">
+      <EntityTypeMapping TypeName="WomanModel.PORTAL_MODERATORS">
+        <MappingFragment StoreEntitySet="PORTAL_MODERATORS">
+          <ScalarProperty Name="PM_ID" ColumnName="PM_ID" />
+          <ScalarProperty Name="PM_NAME" ColumnName="PM_NAME" />
+          <ScalarProperty Name="PM_ADDRESS" ColumnName="PM_ADDRESS" />
+          <ScalarProperty Name="PM_PHONE" ColumnName="PM_PHONE" />
+          <ScalarProperty Name="PM_EMAIL" ColumnName="PM_EMAIL" />
+          <ScalarProperty Name="PM_JOIN_DATE" ColumnName="PM_JOIN_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VERIFY_HISTORY">
+      <EntityTypeMapping TypeName="WomanModel.VERIFY_HISTORY">
+        <MappingFragment StoreEntitySet="VERIFY_HISTORY">
+          <ScalarProperty Name="E_ID" ColumnName="E_ID" />
+          <ScalarProperty Name="E_PASSWORD" ColumnName="E_PASSWORD" />
+          <ScalarProperty Name="PM_ID" ColumnName="PM_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

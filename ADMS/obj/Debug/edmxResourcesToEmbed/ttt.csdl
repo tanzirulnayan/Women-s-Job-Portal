@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="lalaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="E_USERS">
+    <Key>
+      <PropertyRef Name="E_ID" />
+    </Key>
+    <Property Name="E_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_PASSWORD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="LALAs" Relationship="Self.EMPLOYERS_E_ID_FK" FromRole="E_USERS" ToRole="LALA" />
+  </EntityType>
+  <EntityType Name="LALA">
+    <Key>
+      <PropertyRef Name="E_ID" />
+      <PropertyRef Name="E_NAME" />
+      <PropertyRef Name="E_ADDRESS" />
+      <PropertyRef Name="E_IMAGE" />
+      <PropertyRef Name="E_EMAIL" />
+    </Key>
+    <Property Name="E_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_IMAGE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_WEBSITE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="E_USERS" Relationship="Self.EMPLOYERS_E_ID_FK" FromRole="LALA" ToRole="E_USERS" />
+  </EntityType>
+  <Association Name="EMPLOYERS_E_ID_FK">
+    <End Role="E_USERS" Type="Self.E_USERS" Multiplicity="1" />
+    <End Role="LALA" Type="Self.LALA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="E_USERS">
+        <PropertyRef Name="E_ID" />
+      </Principal>
+      <Dependent Role="LALA">
+        <PropertyRef Name="E_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="lalas" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="E_USERS" EntityType="Self.E_USERS" />
+    <EntitySet Name="LALAs" EntityType="Self.LALA" />
+    <AssociationSet Name="EMPLOYERS_E_ID_FK" Association="Self.EMPLOYERS_E_ID_FK">
+      <End Role="E_USERS" EntitySet="E_USERS" />
+      <End Role="LALA" EntitySet="LALAs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

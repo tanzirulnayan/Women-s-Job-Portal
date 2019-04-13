@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WomanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="E_USERS">
+    <Key>
+      <PropertyRef Name="E_ID" />
+    </Key>
+    <Property Name="E_ID" Type="Int16" Nullable="false" />
+    <Property Name="E_PASSWORD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPLOYERS" Relationship="Self.EMPLOYERS_E_ID_FK" FromRole="E_USERS" ToRole="EMPLOYERS" />
+    <NavigationProperty Name="JOB_CIRCULARS" Relationship="Self.JOB_CIRCULARS_E_ID_FK" FromRole="E_USERS" ToRole="JOB_CIRCULARS" />
+    <NavigationProperty Name="VERIFY_HISTORY" Relationship="Self.VERIFY_HISTORY_E_ID_FK" FromRole="E_USERS" ToRole="VERIFY_HISTORY" />
+  </EntityType>
+  <EntityType Name="JOB_CIRCULARS">
+    <Key>
+      <PropertyRef Name="C_ID" />
+    </Key>
+    <Property Name="C_ID" Type="Int16" Nullable="false" />
+    <Property Name="C_TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="J_POSITION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JOB_NATURE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JOB_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CGPA_REQ" Type="Int16" Nullable="false" />
+    <Property Name="JOB_LOCATION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SALARY" Type="Int32" />
+    <Property Name="E_ID" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="E_USERS" Relationship="Self.JOB_CIRCULARS_E_ID_FK" FromRole="JOB_CIRCULARS" ToRole="E_USERS" />
+  </EntityType>
+  <EntityType Name="JS_USERS">
+    <Key>
+      <PropertyRef Name="JS_ID" />
+    </Key>
+    <Property Name="JS_ID" Type="Int16" Nullable="false" />
+    <Property Name="JS_PASSWORD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="JOB_SEEKERS" Relationship="Self.JOB_SEEKERS_JS_ID_FK" FromRole="JS_USERS" ToRole="JOB_SEEKERS" />
+  </EntityType>
+  <EntityType Name="PM_USERS">
+    <Key>
+      <PropertyRef Name="PM_ID" />
+    </Key>
+    <Property Name="PM_ID" Type="Int16" Nullable="false" />
+    <Property Name="PM_PASSWORD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PORTAL_MODERATORS" Relationship="Self.PORTAL_MODERATORS_PM_ID_FK" FromRole="PM_USERS" ToRole="PORTAL_MODERATORS" />
+    <NavigationProperty Name="VERIFY_HISTORY" Relationship="Self.VERIFY_HISTORY_PM_ID_FK" FromRole="PM_USERS" ToRole="VERIFY_HISTORY" />
+  </EntityType>
+  <EntityType Name="EMPLOYER">
+    <Key>
+      <PropertyRef Name="E_ID" />
+      <PropertyRef Name="E_NAME" />
+      <PropertyRef Name="E_ADDRESS" />
+      <PropertyRef Name="E_EMAIL" />
+      <PropertyRef Name="E_PHONE" />
+    </Key>
+    <Property Name="E_ID" Type="Int16" Nullable="false" />
+    <Property Name="E_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="E_WEBSITE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="E_USERS" Relationship="Self.EMPLOYERS_E_ID_FK" FromRole="EMPLOYERS" ToRole="E_USERS" />
+    <Property Name="E_PHONE" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="JOB_SEEKERS">
+    <Key>
+      <PropertyRef Name="JS_ID" />
+      <PropertyRef Name="JS_NAME" />
+      <PropertyRef Name="JS_ADDRESS" />
+      <PropertyRef Name="JS_PHONE" />
+      <PropertyRef Name="JS_EMAIL" />
+    </Key>
+    <Property Name="JS_ID" Type="Int16" Nullable="false" />
+    <Property Name="JS_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JS_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JS_PHONE" Type="Int64" Nullable="false" />
+    <Property Name="JS_EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JS_DOB" Type="DateTime" />
+    <Property Name="JS_EDUCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JS_SKILLS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JS_IMAGE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="JS_USERS" Relationship="Self.JOB_SEEKERS_JS_ID_FK" FromRole="JOB_SEEKERS" ToRole="JS_USERS" />
+  </EntityType>
+  <EntityType Name="PORTAL_MODERATORS">
+    <Key>
+      <PropertyRef Name="PM_ID" />
+      <PropertyRef Name="PM_NAME" />
+      <PropertyRef Name="PM_ADDRESS" />
+      <PropertyRef Name="PM_PHONE" />
+      <PropertyRef Name="PM_EMAIL" />
+    </Key>
+    <Property Name="PM_ID" Type="Int16" Nullable="false" />
+    <Property Name="PM_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PM_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PM_PHONE" Type="Int64" Nullable="false" />
+    <Property Name="PM_EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PM_JOIN_DATE" Type="DateTime" />
+    <NavigationProperty Name="PM_USERS" Relationship="Self.PORTAL_MODERATORS_PM_ID_FK" FromRole="PORTAL_MODERATORS" ToRole="PM_USERS" />
+  </EntityType>
+  <EntityType Name="VERIFY_HISTORY">
+    <Key>
+      <PropertyRef Name="E_ID" />
+      <PropertyRef Name="E_PASSWORD" />
+      <PropertyRef Name="PM_ID" />
+    </Key>
+    <Property Name="E_ID" Type="Int16" Nullable="false" />
+    <Property Name="E_PASSWORD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PM_ID" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="E_USERS" Relationship="Self.VERIFY_HISTORY_E_ID_FK" FromRole="VERIFY_HISTORY" ToRole="E_USERS" />
+    <NavigationProperty Name="PM_USERS" Relationship="Self.VERIFY_HISTORY_PM_ID_FK" FromRole="VERIFY_HISTORY" ToRole="PM_USERS" />
+  </EntityType>
+  <Association Name="EMPLOYERS_E_ID_FK">
+    <End Role="E_USERS" Type="Self.E_USERS" Multiplicity="1" />
+    <End Role="EMPLOYERS" Type="Self.EMPLOYER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="E_USERS">
+        <PropertyRef Name="E_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYERS">
+        <PropertyRef Name="E_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JOB_CIRCULARS_E_ID_FK">
+    <End Role="E_USERS" Type="Self.E_USERS" Multiplicity="1" />
+    <End Role="JOB_CIRCULARS" Type="Self.JOB_CIRCULARS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="E_USERS">
+        <PropertyRef Name="E_ID" />
+      </Principal>
+      <Dependent Role="JOB_CIRCULARS">
+        <PropertyRef Name="E_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VERIFY_HISTORY_E_ID_FK">
+    <End Role="E_USERS" Type="Self.E_USERS" Multiplicity="1" />
+    <End Role="VERIFY_HISTORY" Type="Self.VERIFY_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="E_USERS">
+        <PropertyRef Name="E_ID" />
+      </Principal>
+      <Dependent Role="VERIFY_HISTORY">
+        <PropertyRef Name="E_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JOB_SEEKERS_JS_ID_FK">
+    <End Role="JS_USERS" Type="Self.JS_USERS" Multiplicity="1" />
+    <End Role="JOB_SEEKERS" Type="Self.JOB_SEEKERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JS_USERS">
+        <PropertyRef Name="JS_ID" />
+      </Principal>
+      <Dependent Role="JOB_SEEKERS">
+        <PropertyRef Name="JS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PORTAL_MODERATORS_PM_ID_FK">
+    <End Role="PM_USERS" Type="Self.PM_USERS" Multiplicity="1" />
+    <End Role="PORTAL_MODERATORS" Type="Self.PORTAL_MODERATORS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PM_USERS">
+        <PropertyRef Name="PM_ID" />
+      </Principal>
+      <Dependent Role="PORTAL_MODERATORS">
+        <PropertyRef Name="PM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VERIFY_HISTORY_PM_ID_FK">
+    <End Role="PM_USERS" Type="Self.PM_USERS" Multiplicity="1" />
+    <End Role="VERIFY_HISTORY" Type="Self.VERIFY_HISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PM_USERS">
+        <PropertyRef Name="PM_ID" />
+      </Principal>
+      <Dependent Role="VERIFY_HISTORY">
+        <PropertyRef Name="PM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WomanEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="E_USERS" EntityType="Self.E_USERS" />
+    <EntitySet Name="JOB_CIRCULARS" EntityType="Self.JOB_CIRCULARS" />
+    <EntitySet Name="JS_USERS" EntityType="Self.JS_USERS" />
+    <EntitySet Name="PM_USERS" EntityType="Self.PM_USERS" />
+    <EntitySet Name="EMPLOYERS" EntityType="Self.EMPLOYER" />
+    <EntitySet Name="JOB_SEEKERS" EntityType="Self.JOB_SEEKERS" />
+    <EntitySet Name="PORTAL_MODERATORS" EntityType="Self.PORTAL_MODERATORS" />
+    <EntitySet Name="VERIFY_HISTORY" EntityType="Self.VERIFY_HISTORY" />
+    <AssociationSet Name="EMPLOYERS_E_ID_FK" Association="Self.EMPLOYERS_E_ID_FK">
+      <End Role="E_USERS" EntitySet="E_USERS" />
+      <End Role="EMPLOYERS" EntitySet="EMPLOYERS" />
+    </AssociationSet>
+    <AssociationSet Name="JOB_CIRCULARS_E_ID_FK" Association="Self.JOB_CIRCULARS_E_ID_FK">
+      <End Role="E_USERS" EntitySet="E_USERS" />
+      <End Role="JOB_CIRCULARS" EntitySet="JOB_CIRCULARS" />
+    </AssociationSet>
+    <AssociationSet Name="VERIFY_HISTORY_E_ID_FK" Association="Self.VERIFY_HISTORY_E_ID_FK">
+      <End Role="E_USERS" EntitySet="E_USERS" />
+      <End Role="VERIFY_HISTORY" EntitySet="VERIFY_HISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="JOB_SEEKERS_JS_ID_FK" Association="Self.JOB_SEEKERS_JS_ID_FK">
+      <End Role="JS_USERS" EntitySet="JS_USERS" />
+      <End Role="JOB_SEEKERS" EntitySet="JOB_SEEKERS" />
+    </AssociationSet>
+    <AssociationSet Name="PORTAL_MODERATORS_PM_ID_FK" Association="Self.PORTAL_MODERATORS_PM_ID_FK">
+      <End Role="PM_USERS" EntitySet="PM_USERS" />
+      <End Role="PORTAL_MODERATORS" EntitySet="PORTAL_MODERATORS" />
+    </AssociationSet>
+    <AssociationSet Name="VERIFY_HISTORY_PM_ID_FK" Association="Self.VERIFY_HISTORY_PM_ID_FK">
+      <End Role="PM_USERS" EntitySet="PM_USERS" />
+      <End Role="VERIFY_HISTORY" EntitySet="VERIFY_HISTORY" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
